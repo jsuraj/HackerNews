@@ -53,7 +53,15 @@ class NewsItem extends React.Component {
       <div className='col-md-4'>
       <Jumbotron bsStyle='primary'>
         <h2>{this.state.title}</h2>
-        <p>Author:{this.state.by}</p>
+        <hr/>
+        <div className="card-details">
+          <div classame="author-details">
+          </div>
+          <div className="score-details">
+          </div>
+          <div className="comment-details">
+          </div>
+        </div>
         </Jumbotron>
       </div>
     )

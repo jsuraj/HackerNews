@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import NewsGrid from './components/newsgrid'
 import * as HNapi from './api/apicall'
+import './styles/newsitem.css'
 
 class App extends Component {
   constructor(props) {
