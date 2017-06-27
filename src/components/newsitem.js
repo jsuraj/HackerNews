@@ -22,6 +22,7 @@ class NewsItem extends React.Component {
       parts	: [],
       descendants : 0
     };
+    this.handleClick = this.handleClick.bind(this);
   }
 
   componentDidMount() {
@@ -48,24 +49,31 @@ class NewsItem extends React.Component {
     })
   }
 
+  handleClick(event){
+      alert('clicked: '+event.target.value);
+  }
+
   render() {
     return(
       <div className='col-md-4'>
-      <Jumbotron bsStyle='primary'>
+      <Jumbotron bsStyle='primary' onClick={this.handleClick}>
         <h2>{this.state.title}</h2>
         <hr/>
         <div className="row">
-          <div className = "col-md-4">  
+          <div className = "col-md-4">
               <i className="material-icons">person</i>
+              <br/>
               {this.state.by}
           </div>
           <div className = "col-md-4">
               <i className="material-icons">star_rate</i>
+              <br/>
               {this.state.score}
           </div>
           <div className = "col-md-4">
               <i className="material-icons">comment</i>
-                {this.state.descendants}
+              <br/>
+              {this.state.descendants}
           </div>
         </div>
         </Jumbotron>
