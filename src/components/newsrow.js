@@ -4,7 +4,7 @@ import NewsItem from './newsitem'
 class NewsRow extends React.Component {
   render() {
     return(
-      <div>
+      <div className='row'>
         <NewsItem />
         <NewsItem />
         <NewsItem />
