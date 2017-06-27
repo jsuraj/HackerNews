@@ -12,3 +12,14 @@ export function getTopNews() {
       console.log(error);
     });
 }
+
+export function getNewsItem(newsId) {
+  return axios.get(baseurl+'/item/'+newsId+'.json')
+  .then(function(response) {
+    console.log(response);
+    return response.data;
+  })
+  .catch(function(error) {
+    console.log(error);
+  })
+}
