@@ -33,7 +33,7 @@ class App extends Component {
     // };
   }
 
-  componentWillMount() {
+  componentDidMount() {
     // alert('componentDidMount');
     var self = this;
     var topNewsArray;
