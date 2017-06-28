@@ -4,6 +4,7 @@ import './App.css';
 import NewsGrid from './components/newsgrid'
 import * as HNapi from './api/apicall'
 import './styles/newsitem.css'
+import {PageHeader} from 'react-bootstrap'
 
 class App extends Component {
   constructor(props) {
@@ -76,6 +77,7 @@ class App extends Component {
   render() {
     return (
       <div className='newsgrid-div'>
+        <PageHeader>HackerNews</PageHeader>
         <NewsGrid  topNewsIdArray = {this.state.topNewsIdArray} />
       </div>
     );
