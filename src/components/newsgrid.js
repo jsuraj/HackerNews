@@ -8,28 +8,34 @@ class NewsGrid extends React.Component {
     this.state = {
       newsItemArray : []
     };
+    this.handleNewsClick = this.handleNewsClick.bind(this);
   }
 
-componentWillReceiveProps(nextProps){
-  var self = this;
-  console.log('array length in newsgrid: '+nextProps.topNewsIdArray.length);
-  for(var i=0; i<nextProps.topNewsIdArray.length; i++) {
-    // console.log('in for loop:'+self.state.topNewsIdArray[i]);
-    HNapi.getNewsItem(nextProps.topNewsIdArray[i])
-    .then(function(data) {
-      var newsItem = data;
-      var tempNewsItemArray = self.state.newsItemArray;
-      tempNewsItemArray.push(newsItem);
-      // alert('req successfull');
-      self.setState({
-        newsItemArray : tempNewsItemArray
-      });
-    })
-    .catch(function(error) {
-      console.log(error);
-    })
+  handleNewsClick(url) {
+    console.log('NewsGrid: handleNewsClick: url: '+url);
+    window.open(url, '_blank')
   }
-}
+
+  componentWillReceiveProps(nextProps){
+    var self = this;
+    console.log('array length in newsgrid: '+nextProps.topNewsIdArray.length);
+    for(var i=0; i<nextProps.topNewsIdArray.length; i++) {
+      // console.log('in for loop:'+self.state.topNewsIdArray[i]);
+      HNapi.getNewsItem(nextProps.topNewsIdArray[i])
+      .then(function(data) {
+        var newsItem = data;
+        var tempNewsItemArray = self.state.newsItemArray;
+        tempNewsItemArray.push(newsItem);
+        // alert('req successfull');
+        self.setState({
+          newsItemArray : tempNewsItemArray
+        });
+      })
+      .catch(function(error) {
+        console.log(error);
+      })
+    }
+  }
 
   render() {
     var rows = [];
@@ -39,7 +45,7 @@ componentWillReceiveProps(nextProps){
       ary.push(tempArray[i]);
       ary.push(tempArray[i+1]);
       ary.push(tempArray[i+2]);
-      rows.push(<NewsRow newsRowItems={ary} key={i} />)
+      rows.push(<NewsRow newsRowItems={ary} key={i} handleNewsClick={this.handleNewsClick}/>)
     }
     return(
       <div>

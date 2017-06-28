@@ -5,7 +5,12 @@ import * as HNapi from '../api/apicall'
 class NewsItem extends React.Component {
   constructor(props) {
     super(props);
+    this.handleClick = this.handleClick.bind(this);
+  }
 
+  handleClick(url) {
+    console.log('NewsItem:handleClick: '+url);
+    this.props.handleNewsClick(url);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -15,7 +20,7 @@ class NewsItem extends React.Component {
   render() {
     return(
       <div className='col-md-4'>
-      <Jumbotron bsStyle='primary' >
+      <Jumbotron bsStyle='primary' onClick={this.handleClick.bind(null, this.props.newsItem.url)}>
         <h2>{this.props.newsItem.title}</h2>
         <hr/>
         <div className="row">
