@@ -9,9 +9,9 @@ class NewsRow extends React.Component {
   render() {
     return(
       <div className='row'>
-        <NewsItem />
-        <NewsItem />
-        <NewsItem />
+        <NewsItem newsItem={this.props.newsRowItems[0]}/>
+        <NewsItem newsItem={this.props.newsRowItems[1]}/>
+        <NewsItem newsItem={this.props.newsRowItems[2]}/>
       </div>
     )
   }
