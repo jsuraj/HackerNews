@@ -20,8 +20,10 @@ class NewsItem extends React.Component {
   render() {
     return(
       <div className='col-md-4'>
-      <Jumbotron bsStyle='primary' onClick={this.handleClick.bind(null, this.props.newsItem.url)}>
-        <h2>{this.props.newsItem.title}</h2>
+      <Jumbotron bsStyle='primary'>
+        <h2 className='title' onClick={this.handleClick.bind(null, this.props.newsItem.url)}>
+          {this.props.newsItem.title}
+        </h2>
         <hr/>
         <div className="row">
           <div className = "col-md-4 col-xs-4">
