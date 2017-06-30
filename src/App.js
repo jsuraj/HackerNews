@@ -17,66 +17,7 @@ class App extends Component {
       topNewsIdArray : [],
       topNewsIdArrayReceived : false
     }
-    // var topNewsArray = HNapi.getTopNews();
-    // console.log('topNewsArray:'+topNewsArray);
-    // var self = this;
-    // var topNewsArray;
-    // HNapi.getTopNews()
-    // .then(function(data) {
-    //   topNewsArray = data;
-    //   console.log('TopNewsArray in App:'+topNewsArray);
-    //   self.setState({
-    //     topNewsIdArray : topNewsArray.slice(0, 90)
-    //   })
-    // })
-    // .catch(function(error) {
-    //   console.log(error);
-    // })
-    // console.log('topNewsArray in constructor: '+topNewsArray);
-    // this.state = {
-    //   topNewsIdArray : topNewsArray
-    // };
   }
-
-  // componentDidMount() {
-  //   // alert('componentDidMount');
-  //   var self = this;
-  //   var topNewsArray;
-  //   HNapi.getTopNews()
-  //   .then(function(data) {
-  //     topNewsArray = data;
-  //     console.log('TopNewsArray in App:'+topNewsArray);
-  //     self.setState({
-  //       topNewsIdArray : topNewsArray.slice(0, 90),
-  //       topNewsIdArrayReceived : true
-  //     })
-  //   })
-  //   .catch(function(error) {
-  //     console.log(error);
-  //   })
-  // }
-
-  // componentDidMount() {
-  //   var self = this;
-  //   // var newsItemArray = [];
-  //   console.log('array length:'+this.state.topNewsIdArray.length);
-  //   for(var i=0; i<this.state.topNewsIdArray.length; i++) {
-  //     // console.log('in for loop:'+self.state.topNewsIdArray[i]);
-  //     HNapi.getNewsItem(this.state.topNewsIdArray[i])
-  //     .then(function(data) {
-  //       var newsItem = data;
-  //       var tempNewsItemArray = this.state.newsItemArray;
-  //       tempNewsItemArray.push(newsItem);
-  //       // alert('req successfull');
-  //       self.setState({
-  //         newsItemArray : tempNewsItemArray
-  //       });
-  //     })
-  //     .catch(function(error) {
-  //       console.log(error);
-  //     })
-  //   }
-  // }
 
   render() {
     const history = createHashHistory();
