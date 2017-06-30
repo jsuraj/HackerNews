@@ -24,7 +24,7 @@ class App extends Component {
         <PageHeader>HackerNews</PageHeader>
         <BrowserRouter history={history}>
             <Switch>
-                <Route exact path="/" component={NewsGrid} />
+                <Route exact path={process.env.PUBLIC_URL+'/'} component={NewsGrid} />
                 <Route exact path="/user/:userId" component={Userprofile} />
             </Switch>
         </BrowserRouter>
