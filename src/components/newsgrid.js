@@ -62,7 +62,7 @@ class NewsGrid extends React.Component {
     var rows = [];
     var tempArray = this.state.newsItemArray;
     for(var i=0; i<tempArray.length; i=i+3) {
-      var ary = new Array();
+      var ary = [];
       ary.push(tempArray[i]);
       ary.push(tempArray[i+1]);
       ary.push(tempArray[i+2]);

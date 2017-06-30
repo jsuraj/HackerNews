@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import NewsGrid from './components/newsgrid'
-import * as HNapi from './api/apicall'
 import './styles/newsitem.css'
 import {PageHeader} from 'react-bootstrap'
-import { Route, Redirect, HashRouter, Switch, Router, BrowserRouter } from 'react-router-dom'
+import { Route, Switch, Router, BrowserRouter } from 'react-router-dom'
 // import {HashRouter} from 'react-router-dom'
 import createHashHistory from 'history/createHashHistory';
 import Userprofile from './components/userprofile'
