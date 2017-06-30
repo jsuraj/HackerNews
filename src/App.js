@@ -38,23 +38,23 @@ class App extends Component {
     // };
   }
 
-  componentDidMount() {
-    // alert('componentDidMount');
-    var self = this;
-    var topNewsArray;
-    HNapi.getTopNews()
-    .then(function(data) {
-      topNewsArray = data;
-      console.log('TopNewsArray in App:'+topNewsArray);
-      self.setState({
-        topNewsIdArray : topNewsArray.slice(0, 90),
-        topNewsIdArrayReceived : true
-      })
-    })
-    .catch(function(error) {
-      console.log(error);
-    })
-  }
+  // componentDidMount() {
+  //   // alert('componentDidMount');
+  //   var self = this;
+  //   var topNewsArray;
+  //   HNapi.getTopNews()
+  //   .then(function(data) {
+  //     topNewsArray = data;
+  //     console.log('TopNewsArray in App:'+topNewsArray);
+  //     self.setState({
+  //       topNewsIdArray : topNewsArray.slice(0, 90),
+  //       topNewsIdArrayReceived : true
+  //     })
+  //   })
+  //   .catch(function(error) {
+  //     console.log(error);
+  //   })
+  // }
 
   // componentDidMount() {
   //   var self = this;
@@ -85,9 +85,7 @@ class App extends Component {
         <PageHeader>HackerNews</PageHeader>
         <BrowserRouter history={history}>
             <Switch>
-                <Route exact path="/" render={props =>
-                  <NewsGrid topNewsIdArray={this.state.topNewsIdArray}/>
-                  } />
+                <Route exact path="/" component={NewsGrid} />
                 <Route exact path="/user/:userId" component={Userprofile} />
             </Switch>
         </BrowserRouter>
