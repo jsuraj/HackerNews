@@ -23,3 +23,14 @@ export function getNewsItem(newsId) {
     console.log(error);
   })
 }
+
+export function getUserInfo(userId) {
+  return axios.get(baseurl+'/user/'+userId+'.json')
+  .then(function(response) {
+    console.log('user: response: '+response);
+    return response.data;
+  })
+  .catch(function(error) {
+    console.log(error);
+  })
+}

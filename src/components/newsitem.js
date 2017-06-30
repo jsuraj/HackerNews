@@ -1,6 +1,7 @@
 import React from 'react'
 import {Jumbotron} from 'react-bootstrap'
 import * as HNapi from '../api/apicall'
+import {Link} from 'react-router-dom'
 
 class NewsItem extends React.Component {
   constructor(props) {
@@ -29,7 +30,7 @@ class NewsItem extends React.Component {
           <div className = "col-md-4 col-xs-4">
               <i className="material-icons">person</i>
               <br/>
-              {this.props.newsItem.by}
+              <Link to={`/user/${this.props.newsItem.by}`}>{this.props.newsItem.by}</Link>              
           </div>
           <div className = "col-md-4 col-xs-4">
               <i className="material-icons">star_rate</i>

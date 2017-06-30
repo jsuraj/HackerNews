@@ -9,14 +9,10 @@ class NewsGrid extends React.Component {
       newsItemArray : []
     };
     this.handleNewsClick = this.handleNewsClick.bind(this);
+    this.updateState = this.updateState.bind(this);
   }
 
-  handleNewsClick(url) {
-    console.log('NewsGrid: handleNewsClick: url: '+url);
-    window.open(url, '_blank')
-  }
-
-  componentWillReceiveProps(nextProps){
+  updateState(nextProps) {
     var self = this;
     console.log('array length in newsgrid: '+nextProps.topNewsIdArray.length);
     for(var i=0; i<nextProps.topNewsIdArray.length; i++) {
@@ -34,6 +30,22 @@ class NewsGrid extends React.Component {
       .catch(function(error) {
         console.log(error);
       })
+    }
+  }
+  handleNewsClick(url) {
+    console.log('NewsGrid: handleNewsClick: url: '+url);
+    window.open(url, '_blank')
+  }
+
+  componentWillReceiveProps(nextProps){
+    this.updateState(nextProps);
+  }
+
+  componentDidMount() {
+    var self = this;
+    if(this.props.topNewsIdArray.length !=0 && this.state.newsItemArray.length === 0) {
+      // alert('in if');
+      this.updateState(self.props);
     }
   }
 
