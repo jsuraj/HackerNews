@@ -28,9 +28,11 @@ class NewsItem extends React.Component {
         <hr/>
         <div className="row">
           <div className = "col-md-4 col-xs-4">
+            <Link to={`/user/${this.props.newsItem.by}`}>
               <i className="material-icons">person</i>
               <br/>
-              <Link to={`/user/${this.props.newsItem.by}`}>{this.props.newsItem.by}</Link>              
+              {this.props.newsItem.by}
+            </Link>
           </div>
           <div className = "col-md-4 col-xs-4">
               <i className="material-icons">star_rate</i>
