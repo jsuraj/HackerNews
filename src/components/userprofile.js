@@ -48,7 +48,7 @@ class Userprofile extends React.Component {
       .then(function(data) {
         var newsItem = data;
         var tempNewsItemArray = self.state.userNewsItemArray;
-        if(newsItem.type === 'story') {
+        if(newsItem.type === 'story' && !newsItem.deleted) {
           tempNewsItemArray.push(newsItem);
         }
         // alert('req successfull');
