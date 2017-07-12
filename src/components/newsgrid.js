@@ -8,7 +8,8 @@ class NewsGrid extends React.Component {
     this.state = {
       topNewsIdArray : [],
       topNewsIdArrayReceived : false,
-      newsItemArray : []
+      newsItemArray : [],
+      newsItemArrayReceived : false
     };
     this.handleNewsClick = this.handleNewsClick.bind(this);
   }
@@ -38,6 +39,9 @@ class NewsGrid extends React.Component {
         console.log(error);
       })
     }
+    self.setState({
+      newsItemArrayReceived : true
+    })
   }
 
   componentDidMount() {
@@ -68,11 +72,20 @@ class NewsGrid extends React.Component {
       ary.push(tempArray[i+2]);
       rows.push(<NewsRow newsRowItems={ary} key={i} handleNewsClick={this.handleNewsClick}/>)
     }
-    return(
-      <div>
-        {rows}
-      </div>
-    );
+    if(this.state.newsItemArrayReceived) {
+      return(
+        <div>
+          {rows}
+        </div>
+      );
+    }
+    else {
+      return(
+        <div>
+          Loading...
+        </div>
+      );
+    }
   }
 }
 

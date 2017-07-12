@@ -19,35 +19,58 @@ class NewsItem extends React.Component {
   }
 
   render() {
-    return(
-      <div className='col-md-4'>
-      <Jumbotron bsStyle='primary'>
-        <h2 className='title' onClick={this.handleClick.bind(null, this.props.newsItem.url)}>
-          {this.props.newsItem.title}
-        </h2>
-        <hr/>
-        <div className="row">
-          <div className = "col-md-4 col-xs-4">
-            <Link to={`/user/${this.props.newsItem.by}`}>
-              <i className="material-icons">person</i>
-              <br/>
-              {this.props.newsItem.by}
-            </Link>
+    if(this.props.newsItem) {
+      if(this.props.newsItem.by && this.props.newsItem.score && this.props.newsItem.descendants) {
+      return(
+        <div className='col-md-4 col-sm-4' key={Math.random()}>
+        <Jumbotron bsStyle='primary'>
+          <h2 className='title' onClick={this.handleClick.bind(null, this.props.newsItem.url)}>
+            {this.props.newsItem.title}
+          </h2>
+          <hr/>
+          <div className="row">
+            <div className = "col-md-4 col-xs-4">
+              <Link to={`/user/${this.props.newsItem.by}`}>
+                <i className="material-icons">person</i>
+                <br/>
+                {this.props.newsItem.by}
+              </Link>
+            </div>
+            <div className = "col-md-4 col-xs-4">
+                <i className="material-icons">star_rate</i>
+                <br/>
+                {this.props.newsItem.score}
+            </div>
+            <div className = "col-md-4 col-xs-4">
+                <i className="material-icons">comment</i>
+                <br/>
+                {this.props.newsItem.descendants}
+            </div>
           </div>
-          <div className = "col-md-4 col-xs-4">
-              <i className="material-icons">star_rate</i>
-              <br/>
-              {this.props.newsItem.score}
-          </div>
-          <div className = "col-md-4 col-xs-4">
-              <i className="material-icons">comment</i>
-              <br/>
-              {this.props.newsItem.descendants}
-          </div>
+          </Jumbotron>
         </div>
-        </Jumbotron>
+      );
+    }
+    else {
+      return(
+        <div className='col-md-4 col-sm-4' key={Math.random()}>
+        <Jumbotron bsStyle='primary'>
+          <h2 className='title' onClick={this.handleClick.bind(null, this.props.newsItem.url)}>
+            {this.props.newsItem.title}
+          </h2>
+          <hr/>
+          </Jumbotron>
+        </div>
+      );
+    }
+  }
+  else {
+    return(
+      <div className='col-md-4 col-sm-4'>
+        Loading...
       </div>
     )
+  }
   }
 }
 
