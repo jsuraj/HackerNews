@@ -17,6 +17,7 @@ class Userprofile extends React.Component {
     }
     this.getNewsItems = this.getNewsItems.bind(this);
     this.handleNewsClick = this.handleNewsClick.bind(this);
+    this.timeConverter = this.timeConverter.bind(this);
   }
 
   componentDidMount() {
@@ -61,6 +62,19 @@ class Userprofile extends React.Component {
     }
   }
 
+  timeConverter(UNIX_timestamp){
+    var a = new Date(UNIX_timestamp * 1000);
+    var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+    var year = a.getFullYear();
+    var month = months[a.getMonth()];
+    var date = a.getDate();
+    var hour = a.getHours();
+    var min = a.getMinutes();
+    var sec = a.getSeconds();
+    var time = date + ' ' + month + ' ' + year + ' ' + hour + ':' + min + ':' + sec ;
+    return time;
+  }
+
   handleNewsClick(url) {
     console.log('NewsGrid: handleNewsClick: url: '+url);
     window.open(url, '_blank')
@@ -81,9 +95,9 @@ class Userprofile extends React.Component {
     return(
       <div>
         <Jumbotron bsStyle='primary'>
-          id:{this.state.id}<br/>
-          created:{this.state.created}<br/>
-          karma:{this.state.karma}<br/>
+          UserName : {this.state.id}<br/>
+          Joined on : {this.timeConverter(this.state.created)}<br/>
+          Karma : {this.state.karma}<br/>
         </Jumbotron>
         <div>
           {rows}
