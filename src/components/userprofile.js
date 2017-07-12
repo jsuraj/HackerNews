@@ -67,33 +67,17 @@ class Userprofile extends React.Component {
   }
 
   render() {
-    var tempUserNewsArray;
-    if(this.state.userNewsItemArray.length > 90) {
-      tempUserNewsArray = this.state.userNewsItemArray.slice(0, 90);
-    }
-    else {
-      tempUserNewsArray = this.state.userNewsItemArray;
-    }
-    var tempLength = Math.floor(tempUserNewsArray.length/3);
-    // console.log('submitted length: '+this.state.submitted.length);
+    var tempLength = Math.floor(this.state.userNewsItemArray.length/3);
     console.log('templength: '+tempLength);
     var rows=[];
-    var tempArray = this.state.userNewsItemArray;
-    // console.log('submitted: '+this.state.submitted);
-    // console.log('tempArray: '+tempArray);
     for(var i=0;i<tempLength;i++) {
-      // console.log('count: '+i);
       var ary = [];
-      ary.push(tempArray[i*3]);
-      ary.push(tempArray[i*3+1]);
-      ary.push(tempArray[i*3+2]);
+      ary.push(this.state.userNewsItemArray[i*3]);
+      ary.push(this.state.userNewsItemArray[i*3+1]);
+      ary.push(this.state.userNewsItemArray[i*3+2]);
       rows.push(<NewsRow newsRowItems={ary} key={i} handleNewsClick={this.handleNewsClick}/>);
       console.log('ary: '+ary);
     }
-    // else{
-    //   var rows = [];
-    //   rows.push(<div key={Math.random()}>Loading...</div>);
-    // }
     return(
       <div>
         <Jumbotron bsStyle='primary'>
