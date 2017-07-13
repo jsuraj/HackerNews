@@ -1,6 +1,7 @@
 import React from 'react'
 import * as HNapi from '../api/apicall'
 import NewsRow from './newsrow'
+import NewsItem from './newsitem'
 import {Jumbotron} from 'react-bootstrap'
 
 class Userprofile extends React.Component {
@@ -82,6 +83,7 @@ class Userprofile extends React.Component {
 
   render() {
     var tempLength = Math.floor(this.state.userNewsItemArray.length/3);
+    console.log('userNewsItemArray length: '+this.state.userNewsItemArray.length);
     console.log('templength: '+tempLength);
     var rows=[];
     for(var i=0;i<tempLength;i++) {
@@ -89,8 +91,15 @@ class Userprofile extends React.Component {
       ary.push(this.state.userNewsItemArray[i*3]);
       ary.push(this.state.userNewsItemArray[i*3+1]);
       ary.push(this.state.userNewsItemArray[i*3+2]);
-      rows.push(<NewsRow newsRowItems={ary} key={i} handleNewsClick={this.handleNewsClick}/>);
+      rows.push(<NewsRow newsRowItems={ary} key={i} handleNewsClick={this.handleNewsClick} />);
       console.log('ary: '+ary);
+    }
+    if(tempLength === 0) {
+      // rows.push(<div className="row">);
+      for(var i=0;i<this.state.userNewsItemArray.length;i++) {
+        rows.push(<NewsItem newsItem={this.state.userNewsItemArray[i]} />);
+      }
+      // rows.push(</div>);
     }
     return(
       <div>
