@@ -4,3 +4,8 @@ body {
   background-color: #bdc3c7;
   font-family: 'Roboto Slab', serif;
 }
+
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
